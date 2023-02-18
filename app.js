@@ -1,6 +1,7 @@
 const express=require('express');
 const mongoose=require('mongoose');
 const Campground=require('./models/campground');
+const ejsMate=require('ejs-mate');
 const methodOverride=require('method-override');
 
 mongoose.set('strictQuery', false);
@@ -21,6 +22,7 @@ db.once('open',()=>{
 const app=express();
 const path=require('path');
 
+app.engine('ejs',ejsMate);
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'))
 app.use(express.urlencoded({extended: true}))
@@ -70,4 +72,4 @@ app.delete('/campgrounds/:id',async(req,res)=>{
 
 app.listen(3000,()=> {
     console.log('LISTENING TO PORT 3000!!');
-})
+});
