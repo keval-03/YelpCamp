@@ -16,5 +16,5 @@ module.exports.reviewSchema=joi.object({
     rating: joi.number().required().min(1).max(5),
     body: Joi.string().required()
   }).required()
-})
+});
 
