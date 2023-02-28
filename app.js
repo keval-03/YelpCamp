@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV!=="production"){
+    require('dotenv').config();
+}
+
 const express=require('express');
 const mongoose=require('mongoose');
 const session=require('express-session')
@@ -72,12 +76,6 @@ app.use('/campgrounds/:id/reviews',reviewRoutes);
 
 app.get('/',(req,res)=>{
     res.render('home')
-})
-
-app.get('/fakeUser',async(req,res)=>{
-  const user=new User({email: 'abc@gmail.com',username: 'abc'});
-  const newUser=await User.register(user,'chicken');
-  res.send(newUser);
 })
 
 app.all('*',(req,res,next)=>{
