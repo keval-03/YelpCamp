@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/styles/stars.css">
 <div class="row">
     <div class="col-6">
+        <div id='map' style='width: 400px; height: 300px;'></div>
         <div id="campgroundControl" class="carousel slide">
         <div class="carousel-inner">
             <% camp.images.forEach((img,i) => { %>
@@ -96,3 +97,8 @@
     </div>
 </div>
 
+<script>
+    const mapToken='<%- process.env.MAPBOX_TOKEN %>';
+    const camp=<%- JSON.stringify(camp) %>
+</script>
+<script src="/js/showMap.js"></script>
