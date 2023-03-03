@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="/styles/stars.css">
 <div class="row">
     <div class="col-6">
-        <div id='map' style='width: 400px; height: 300px;'></div>
         <div id="campgroundControl" class="carousel slide">
         <div class="carousel-inner">
             <% camp.images.forEach((img,i) => { %>
@@ -48,6 +47,7 @@
     </div>
 
     <div class="col-6">
+        <div id='showMap'></div>
         <% if(currentUser) {%>
             <h2>Leave a Review</h2>
             <form action="/campgrounds/<%= camp._id %>/reviews" class="mb-3 validated-form" method="post" novalidate>
